@@ -2,13 +2,13 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: my-dep
-  name: my-dep
+    app: frontend
+  name: frontend
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
-      app: my-dep
+      app: frontend
   strategy: 
     type: RollingUpdate
     rollingUpdate:
@@ -17,7 +17,7 @@ spec:
   template:
     metadata:
       labels:
-        app: my-dep
+        app: frontend
     spec:
       containers:
       - image: httpd:alpine3.22
